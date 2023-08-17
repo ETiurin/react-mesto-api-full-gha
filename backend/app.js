@@ -29,6 +29,12 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(cookieParser());
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use('/api/users', auth, userRoute);
 app.use('/api/cards', auth, cardRoute);
 app.post('/api/signin', loginValidation, login);

@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/ETiurin/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 84.201.137.170
 
-Frontend https://...
+Frontend https://ETiurin.nomoreparties.co
 
-Backend https://...
+Backend https://ETiurin.nomoreparties.co/api
