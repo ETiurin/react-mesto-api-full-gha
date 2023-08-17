@@ -1,6 +1,6 @@
 import { apiUrl } from "./constans";
 
-const getApiToken = () => {
+const getToken = () => {
   const token = localStorage.getItem('jwt');
 
   return token;
