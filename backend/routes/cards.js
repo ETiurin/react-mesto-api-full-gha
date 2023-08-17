@@ -8,10 +8,10 @@ const {
 } = require('../controllers/cards');
 const { cardIdValidation, createCardValidation } = require('../middlewares/validations');
 
-router.get('/api', getCards);
-router.post('/api', createCardValidation, createCard);
-router.delete('/api/:cardId', cardIdValidation, deleteCardById);
-router.put('/api/:cardId/likes', cardIdValidation, likeCard);
-router.delete('/api/:cardId/likes', cardIdValidation, disLikeCard);
+router.get('/', getCards);
+router.post('/', createCardValidation, createCard);
+router.delete('/:cardId', cardIdValidation, deleteCardById);
+router.put('/:cardId/likes', cardIdValidation, likeCard);
+router.delete('/:cardId/likes', cardIdValidation, disLikeCard);
 
 module.exports = router;

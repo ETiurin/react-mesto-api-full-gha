@@ -12,10 +12,10 @@ const {
   avatarChangeValidation,
 } = require('../middlewares/validations');
 
-router.get('/api/me', getUserInfo);
-router.get('/api', getUsers);
-router.get('/api/:userId', userIdValidation, getUserById);
-router.patch('/api/me', userInformationChangeValidation, editUserInfo);
-router.patch('/api/me/avatar', avatarChangeValidation, editAvatar);
+router.get('/me', getUserInfo);
+router.get('/', getUsers);
+router.get('/:userId', userIdValidation, getUserById);
+router.patch('/me', userInformationChangeValidation, editUserInfo);
+router.patch('/me/avatar', avatarChangeValidation, editAvatar);
 
 module.exports = router;

@@ -146,7 +146,7 @@ const login = (req, res, next) => {
           maxAge: 3600000,
           httpOnly: true,
         })
-        .send({ message: 'Успешная авторизация' });
+        .send({ token: token, message: 'Успешная авторизация' });
     })
     .catch(next);
 };

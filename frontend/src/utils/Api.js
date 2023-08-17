@@ -17,7 +17,7 @@ class Api {
   }
 
   _getInitialCards() {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/cards`, {
+    return fetch(`${this._apiUrl}/cards`, {
       headers: {
         authorization: this._apiToken,
       },
@@ -25,7 +25,7 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/users/me`, {
+    return fetch(`${this._apiUrl}/users/me`, {
       headers: {
         authorization: this._apiToken,
       },
@@ -37,7 +37,7 @@ class Api {
   }
 
   editUserInfo({ name, about }) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/users/me`, {
+    return fetch(`${this._apiUrl}/users/me`, {
       method: "PATCH",
       headers: {
         authorization: this._apiToken,
@@ -51,7 +51,7 @@ class Api {
   }
 
   addNewCard(data) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/cards`, {
+    return fetch(`${this._apiUrl}/cards`, {
       method: "POST",
       headers: {
         authorization: this._apiToken,
@@ -65,7 +65,7 @@ class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/cards/${cardId}`, {
+    return fetch(`${this._apiUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
         authorization: this._apiToken,
@@ -74,7 +74,7 @@ class Api {
   }
 
   setLike(cardId) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/cards/${cardId}/likes`, {
+    return fetch(`${this._apiUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: {
         authorization: this._apiToken,
@@ -87,7 +87,7 @@ class Api {
   }
 
   removeLike(cardId) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/cards/${cardId}/likes`, {
+    return fetch(`${this._apiUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: {
         authorization: this._apiToken,
@@ -96,7 +96,7 @@ class Api {
   }
 
   setAvatar(data) {
-    return fetch(`${this._apiUrl}${this._apiCohortId}/users/me/avatar`, {
+    return fetch(`${this._apiUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: {
         authorization: this._apiToken,
