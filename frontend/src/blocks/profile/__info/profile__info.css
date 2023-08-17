@@ -1,0 +1,10 @@
+.profile__info {
+  font-style: normal;
+  color: #fff;
+}
+
+@media all and (max-width: 1023px) {
+  .profile__about {
+    margin: auto;
+  }
+}

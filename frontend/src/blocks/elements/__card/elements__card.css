@@ -1,0 +1,9 @@
+.elements__card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  position: relative;
+}
+
+.elements__card:hover {
+  cursor: pointer;
+}
