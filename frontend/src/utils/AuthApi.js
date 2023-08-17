@@ -46,7 +46,7 @@ class Auth {
 }
 
 export default new Auth({
-    baseUrl: '/api',
+    baseUrl: 'https://api.etiurin.nomoreparties.co',
     headers: {
         'Content-Type': 'application/json'
     }

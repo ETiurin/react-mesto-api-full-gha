@@ -11,6 +11,6 @@
 
 IP-адрес 84.201.137.170
 
-Frontend https://ETiurin.nomoreparties.co
+Frontend https://etiurin.nomoreparties.co
 
-Backend https://ETiurin.nomoreparties.co/api
+Backend https://api.etiurin.nomoreparties.co

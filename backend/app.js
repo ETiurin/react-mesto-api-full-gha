@@ -29,16 +29,16 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(cookieParser());
 
-app.get('/api/crash-test', () => {
+app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
 
-app.use('/api/users', auth, userRoute);
-app.use('/api/cards', auth, cardRoute);
-app.post('/api/signin', loginValidation, login);
-app.post('/api/signup', createUserValidation, createUser);
+app.use('/users', auth, userRoute);
+app.use('/cards', auth, cardRoute);
+app.post('/signin', loginValidation, login);
+app.post('/signup', createUserValidation, createUser);
 
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
