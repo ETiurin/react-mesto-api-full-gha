@@ -5,10 +5,10 @@ const { SECRET_KEY } = require('../utils/constants');
 
 module.exports = (req, res, next) => {
   console.log(UnauthorizedError);
-  if (!req.cookies.jwt) {
+  if (!req.headers.authorization) {
     throw new UnauthorizedError('Ошибка авторизации.');
   }
-  const token = req.cookies.jwt;
+  const token = req.headers.authorization;
   let payload;
   try {
     payload = jwt.verify(token, SECRET_KEY);

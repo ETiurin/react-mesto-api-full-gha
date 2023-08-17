@@ -1,10 +1,14 @@
-import { apiToken, apiUrl, apiCohortId } from "./constans";
+import { apiUrl } from "./constans";
+
+const getApiToken = () => {
+  const token = localStorage.getItem('jwt');
+
+  return token;
+}
 
 class Api {
-  constructor(apiToken, apiUrl, apiCohortId) {
-    this._apiToken = apiToken;
+  constructor(apiUrl) {
     this._apiUrl = apiUrl;
-    this._apiCohortId = apiCohortId;
 
     this.changeLikeCardStatus = this.changeLikeCardStatus.bind(this);
   }
@@ -19,7 +23,7 @@ class Api {
   _getInitialCards() {
     return fetch(`${this._apiUrl}/cards`, {
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
       },
     }).then(this._checkRes);
   }
@@ -27,7 +31,7 @@ class Api {
   getUserInfo() {
     return fetch(`${this._apiUrl}/users/me`, {
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
       },
     }).then(this._checkRes);
   }
@@ -40,7 +44,7 @@ class Api {
     return fetch(`${this._apiUrl}/users/me`, {
       method: "PATCH",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -54,7 +58,7 @@ class Api {
     return fetch(`${this._apiUrl}/cards`, {
       method: "POST",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -68,7 +72,7 @@ class Api {
     return fetch(`${this._apiUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
       },
     }).then(this._checkRes);
   }
@@ -77,7 +81,7 @@ class Api {
     return fetch(`${this._apiUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
       },
     }).then(this._checkRes);
   }
@@ -90,7 +94,7 @@ class Api {
     return fetch(`${this._apiUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
       },
     }).then(this._checkRes);
   }
@@ -99,7 +103,7 @@ class Api {
     return fetch(`${this._apiUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: {
-        authorization: this._apiToken,
+        authorization: getToken(),
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
