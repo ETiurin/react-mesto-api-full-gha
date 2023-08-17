@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(cookieParser());
 
-app.get('/crash-test', () => {
+app.get('/api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
