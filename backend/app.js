@@ -10,6 +10,7 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 const { login, createUser } = require('./controllers/users');
 const errorHandler = require('./middlewares/errorHandler');
+const allowedCors = require('./middlewares/allowedCors');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
@@ -28,6 +29,7 @@ app.use(rateLimit({
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(cookieParser());
+app.use(allowedCors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
