@@ -23,7 +23,7 @@ function Mesto({ setCurrentUser }) {
       .getServerData()
       .then((res) => {
         const [initialCards] = res;
-        setCards(initialCards);
+        setCards(initialCards.data);
       })
       .catch((err) => {
         console.log(err);
