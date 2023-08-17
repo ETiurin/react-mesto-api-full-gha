@@ -1,10 +1,4 @@
-import { apiUrl } from "./constans";
-
-const getToken = () => {
-  const token = localStorage.getItem('jwt');
-
-  return token;
-}
+import { apiUrl, getToken } from "./constans";
 
 class Api {
   constructor(apiUrl) {

@@ -1,3 +1,5 @@
+import { getToken } from './constans';
+
 class Auth {
     constructor(options) {
         this.url = options.baseUrl;
@@ -39,7 +41,7 @@ class Auth {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: getToken(),
             },
         }).then(this._gerResponseJson);
     }
