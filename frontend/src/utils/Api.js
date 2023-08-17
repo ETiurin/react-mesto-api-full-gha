@@ -113,6 +113,6 @@ class Api {
   }
 }
 
-const api = new Api(apiToken, apiUrl, apiCohortId);
+const api = new Api(apiUrl);
 
 export default api;
