@@ -11,6 +11,7 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 const { login, createUser } = require('./controllers/users');
 const errorHandler = require('./middlewares/errorHandler');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
@@ -37,10 +38,14 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(requestLogger);
+
 app.use('/users', auth, userRoute);
 app.use('/cards', auth, cardRoute);
 app.post('/signin', loginValidation, login);
 app.post('/signup', createUserValidation, createUser);
+
+app.use(errorLogger);
 
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
